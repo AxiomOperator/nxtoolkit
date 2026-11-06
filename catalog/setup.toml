@@ -1,0 +1,63 @@
+# Setup: larger bundles that configure a machine for a purpose.
+
+[[action]]
+id = "nvidia"
+name = "NVIDIA driver"
+category = "Drivers"
+description = "Fedora: akmod-nvidia from RPM Fusion. Ubuntu: ubuntu-drivers. Debian: nvidia-driver (non-free). Arch: nvidia-open-dkms with headers for installed kernels."
+root = true
+run = "setup/nvidia.sh apply"
+check = "setup/nvidia.sh status"
+confirm = "Reboot afterwards. With Secure Boot on, you may need to enroll a MOK key."
+
+[[action]]
+id = "gaming"
+name = "Gaming bundle"
+category = "Gaming"
+description = "Steam, Lutris, GameMode and MangoHud. Enables RPM Fusion / multilib as needed; Steam comes from Flathub on Debian/Ubuntu."
+root = true
+run = "setup/gaming.sh"
+
+[[action]]
+id = "dev-tools"
+name = "Build essentials"
+category = "Development"
+description = "Compiler toolchain, make, pkg-config, git, curl."
+root = true
+run = "setup/dev-tools.sh"
+
+[[action]]
+id = "rustup"
+name = "Rust (rustup)"
+category = "Development"
+description = "Install the Rust toolchain for your user via rustup."
+run = "setup/rustup.sh apply"
+revert = "setup/rustup.sh revert"
+check = "setup/rustup.sh status"
+
+[[action]]
+id = "nvm"
+name = "Node.js (nvm)"
+category = "Development"
+description = "Install nvm for your user and the latest LTS Node.js."
+run = "setup/nvm.sh apply"
+check = "setup/nvm.sh status"
+
+[[action]]
+id = "docker"
+name = "Docker"
+category = "Containers"
+description = "Docker engine and compose from distro repositories, service enabled, your user added to the docker group."
+root = true
+run = "setup/docker.sh apply"
+revert = "setup/docker.sh revert"
+check = "setup/docker.sh status"
+confirm = "Membership in the docker group is root-equivalent. Log out and back in for it to take effect."
+
+[[action]]
+id = "podman"
+name = "Podman"
+category = "Containers"
+description = "Daemonless container engine plus podman-compose."
+root = true
+run = "setup/podman.sh"

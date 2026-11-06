@@ -1,0 +1,18 @@
+[package]
+name = "nx-core"
+description = "Core library for nxtoolkit: distro detection, catalog, planning, execution"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+build = "build.rs"
+
+[dependencies]
+anyhow.workspace = true
+thiserror.workspace = true
+serde.workspace = true
+toml.workspace = true
+include_dir.workspace = true
+tempfile.workspace = true
+crossbeam-channel.workspace = true
+which.workspace = true
+libc.workspace = true

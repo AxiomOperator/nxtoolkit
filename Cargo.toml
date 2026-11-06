@@ -1,0 +1,30 @@
+[workspace]
+resolver = "3"
+members = ["crates/nx-core", "crates/nx-tui", "crates/nx-gui"]
+default-members = ["crates/nx-core", "crates/nx-tui"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+repository = "https://github.com/axiomoperator/nxtoolkit"
+
+[workspace.dependencies]
+nx-core = { path = "crates/nx-core" }
+anyhow = "1"
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+toml = "0.9"
+include_dir = "0.7"
+tempfile = "3"
+crossbeam-channel = "0.5"
+which = "8"
+libc = "0.2"
+clap = { version = "4", features = ["derive"] }
+ratatui = "0.30"
+eframe = "0.37"
+
+[profile.release]
+lto = "thin"
+strip = true
+codegen-units = 1

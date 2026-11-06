@@ -1,0 +1,59 @@
+# Maintenance: one-shot tasks with no revert.
+
+[[action]]
+id = "update"
+name = "Update system"
+category = "Updates"
+description = "Refresh repositories and upgrade all native packages (and Flatpaks, if installed)."
+root = true
+run = "maintenance/update.sh"
+
+[[action]]
+id = "aur-update"
+name = "Update AUR packages"
+category = "Updates"
+description = "Upgrade AUR packages with paru or yay."
+distros = ["arch"]
+run = "maintenance/aur-update.sh"
+
+[[action]]
+id = "firmware"
+name = "Update firmware"
+category = "Updates"
+description = "Install fwupd if needed and apply available firmware updates from LVFS."
+root = true
+run = "maintenance/firmware.sh"
+confirm = "Firmware updates may require a reboot and can interrupt the device being updated."
+
+[[action]]
+id = "clean-cache"
+name = "Clean package cache"
+category = "Cleanup"
+description = "Remove cached package downloads (keeps the last 2 versions on Arch if paccache is available)."
+root = true
+run = "maintenance/clean-cache.sh"
+
+[[action]]
+id = "orphans"
+name = "Remove orphaned packages"
+category = "Cleanup"
+description = "Remove dependencies no longer required by any installed package."
+root = true
+run = "maintenance/orphans.sh"
+confirm = "Review the list in the output; orphan removal occasionally catches packages you use."
+
+[[action]]
+id = "flatpak-cleanup"
+name = "Clean Flatpak"
+category = "Cleanup"
+description = "Remove unused Flatpak runtimes and repair the installation."
+root = true
+run = "maintenance/flatpak-cleanup.sh"
+
+[[action]]
+id = "journal-vacuum"
+name = "Trim system journal"
+category = "Cleanup"
+description = "Delete journal entries older than two weeks."
+root = true
+run = "maintenance/journal-vacuum.sh"

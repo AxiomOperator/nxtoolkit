@@ -1,0 +1,17 @@
+[package]
+name = "nx-tui"
+description = "nxtoolkit terminal UI and CLI"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "nxtoolkit"
+path = "src/main.rs"
+
+[dependencies]
+nx-core.workspace = true
+anyhow.workspace = true
+clap.workspace = true
+ratatui.workspace = true
+crossbeam-channel.workspace = true

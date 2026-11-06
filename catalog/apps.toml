@@ -1,0 +1,307 @@
+# Application catalog.
+#
+# [packages] keys: fedora, debian, arch (native names), aur (Arch, only when
+# paru/yay is installed), flatpak (Flathub app id). Each may be a string or a
+# list. Install preference: native → aur → flatpak. Distros with no matching
+# key don't show the app.
+
+# ── Browsers ────────────────────────────────────────────────────────────────
+[[app]]
+id = "firefox"
+name = "Firefox"
+category = "Browsers"
+description = "Mozilla's open-source web browser."
+packages = { fedora = "firefox", arch = "firefox", flatpak = "org.mozilla.firefox" }
+
+[[app]]
+id = "chromium"
+name = "Chromium"
+category = "Browsers"
+description = "Open-source base of Google Chrome."
+packages = { fedora = "chromium", arch = "chromium", flatpak = "org.chromium.Chromium" }
+
+[[app]]
+id = "brave"
+name = "Brave"
+category = "Browsers"
+description = "Privacy-focused Chromium-based browser."
+packages = { aur = "brave-bin", flatpak = "com.brave.Browser" }
+
+[[app]]
+id = "librewolf"
+name = "LibreWolf"
+category = "Browsers"
+description = "Firefox fork focused on privacy and security."
+packages = { aur = "librewolf-bin", flatpak = "io.gitlab.librewolf-community" }
+
+[[app]]
+id = "google-chrome"
+name = "Google Chrome"
+category = "Browsers"
+description = "Google's proprietary web browser."
+packages = { aur = "google-chrome", flatpak = "com.google.Chrome" }
+
+# ── Development ─────────────────────────────────────────────────────────────
+[[app]]
+id = "git"
+name = "Git"
+category = "Development"
+description = "Distributed version control."
+packages = { fedora = "git", debian = "git", arch = "git" }
+
+[[app]]
+id = "github-cli"
+name = "GitHub CLI"
+category = "Development"
+description = "`gh`: GitHub from the command line."
+packages = { fedora = "gh", debian = "gh", arch = "github-cli" }
+
+[[app]]
+id = "neovim"
+name = "Neovim"
+category = "Development"
+description = "Hyperextensible Vim-based text editor."
+packages = { fedora = "neovim", debian = "neovim", arch = "neovim" }
+
+[[app]]
+id = "vscode"
+name = "Visual Studio Code"
+category = "Development"
+description = "Microsoft's code editor."
+packages = { aur = "visual-studio-code-bin", flatpak = "com.visualstudio.code" }
+
+[[app]]
+id = "vscodium"
+name = "VSCodium"
+category = "Development"
+description = "VS Code without Microsoft telemetry and branding."
+packages = { aur = "vscodium-bin", flatpak = "com.vscodium.codium" }
+
+[[app]]
+id = "zed"
+name = "Zed"
+category = "Development"
+description = "High-performance collaborative code editor."
+packages = { arch = "zed", flatpak = "dev.zed.Zed" }
+
+[[app]]
+id = "kitty"
+name = "kitty"
+category = "Development"
+description = "GPU-accelerated terminal emulator."
+packages = { fedora = "kitty", debian = "kitty", arch = "kitty" }
+
+[[app]]
+id = "alacritty"
+name = "Alacritty"
+category = "Development"
+description = "Fast, minimal GPU terminal emulator."
+packages = { fedora = "alacritty", debian = "alacritty", arch = "alacritty" }
+
+[[app]]
+id = "distrobox"
+name = "Distrobox"
+category = "Development"
+description = "Run any distro's userland in a container, tightly integrated with the host."
+packages = { fedora = "distrobox", debian = "distrobox", arch = "distrobox" }
+
+# ── Multimedia ──────────────────────────────────────────────────────────────
+[[app]]
+id = "vlc"
+name = "VLC"
+category = "Multimedia"
+description = "Plays almost any media file."
+packages = { fedora = "vlc", debian = "vlc", arch = "vlc", flatpak = "org.videolan.VLC" }
+
+[[app]]
+id = "mpv"
+name = "mpv"
+category = "Multimedia"
+description = "Minimal, scriptable media player."
+packages = { fedora = "mpv", debian = "mpv", arch = "mpv", flatpak = "io.mpv.Mpv" }
+
+[[app]]
+id = "obs"
+name = "OBS Studio"
+category = "Multimedia"
+description = "Screen recording and live streaming."
+packages = { fedora = "obs-studio", debian = "obs-studio", arch = "obs-studio", flatpak = "com.obsproject.Studio" }
+
+[[app]]
+id = "spotify"
+name = "Spotify"
+category = "Multimedia"
+description = "Music streaming client."
+packages = { aur = "spotify", flatpak = "com.spotify.Client" }
+
+[[app]]
+id = "gimp"
+name = "GIMP"
+category = "Multimedia"
+description = "Raster image editor."
+packages = { fedora = "gimp", debian = "gimp", arch = "gimp", flatpak = "org.gimp.GIMP" }
+
+[[app]]
+id = "inkscape"
+name = "Inkscape"
+category = "Multimedia"
+description = "Vector graphics editor."
+packages = { fedora = "inkscape", debian = "inkscape", arch = "inkscape", flatpak = "org.inkscape.Inkscape" }
+
+[[app]]
+id = "kdenlive"
+name = "Kdenlive"
+category = "Multimedia"
+description = "Non-linear video editor."
+packages = { fedora = "kdenlive", debian = "kdenlive", arch = "kdenlive", flatpak = "org.kde.kdenlive" }
+
+[[app]]
+id = "audacity"
+name = "Audacity"
+category = "Multimedia"
+description = "Audio editor and recorder."
+packages = { fedora = "audacity", debian = "audacity", arch = "audacity", flatpak = "org.audacityteam.Audacity" }
+
+# ── Communication ───────────────────────────────────────────────────────────
+[[app]]
+id = "discord"
+name = "Discord"
+category = "Communication"
+description = "Voice, video and text chat."
+packages = { arch = "discord", flatpak = "com.discordapp.Discord" }
+
+[[app]]
+id = "signal"
+name = "Signal"
+category = "Communication"
+description = "End-to-end encrypted messenger."
+packages = { arch = "signal-desktop", flatpak = "org.signal.Signal" }
+
+[[app]]
+id = "telegram"
+name = "Telegram"
+category = "Communication"
+description = "Cloud-based messenger."
+packages = { debian = "telegram-desktop", arch = "telegram-desktop", flatpak = "org.telegram.desktop" }
+
+[[app]]
+id = "thunderbird"
+name = "Thunderbird"
+category = "Communication"
+description = "Email, calendar and chat client."
+packages = { fedora = "thunderbird", debian = "thunderbird", arch = "thunderbird", flatpak = "org.mozilla.Thunderbird" }
+
+[[app]]
+id = "slack"
+name = "Slack"
+category = "Communication"
+description = "Team messaging."
+packages = { aur = "slack-desktop", flatpak = "com.slack.Slack" }
+
+# ── Gaming ──────────────────────────────────────────────────────────────────
+[[app]]
+id = "steam"
+name = "Steam"
+category = "Gaming"
+description = "Valve's game store and launcher. Native on Arch (needs multilib); Flatpak elsewhere. See Setup → Gaming for a native install."
+packages = { arch = "steam", flatpak = "com.valvesoftware.Steam" }
+
+[[app]]
+id = "lutris"
+name = "Lutris"
+category = "Gaming"
+description = "Game manager for Wine, emulators and native games."
+packages = { fedora = "lutris", debian = "lutris", arch = "lutris", flatpak = "net.lutris.Lutris" }
+
+[[app]]
+id = "heroic"
+name = "Heroic Games Launcher"
+category = "Gaming"
+description = "Epic, GOG and Amazon games launcher."
+packages = { aur = "heroic-games-launcher-bin", flatpak = "com.heroicgameslauncher.hgl" }
+
+[[app]]
+id = "protonup-qt"
+name = "ProtonUp-Qt"
+category = "Gaming"
+description = "Install and manage Proton-GE and Wine-GE."
+packages = { flatpak = "net.davidotek.pupgui2" }
+
+# ── Productivity ────────────────────────────────────────────────────────────
+[[app]]
+id = "libreoffice"
+name = "LibreOffice"
+category = "Productivity"
+description = "Office suite."
+packages = { fedora = "libreoffice", debian = "libreoffice", arch = "libreoffice-fresh", flatpak = "org.libreoffice.LibreOffice" }
+
+[[app]]
+id = "obsidian"
+name = "Obsidian"
+category = "Productivity"
+description = "Markdown knowledge base."
+packages = { arch = "obsidian", flatpak = "md.obsidian.Obsidian" }
+
+[[app]]
+id = "keepassxc"
+name = "KeePassXC"
+category = "Productivity"
+description = "Offline password manager."
+packages = { fedora = "keepassxc", debian = "keepassxc", arch = "keepassxc", flatpak = "org.keepassxc.KeePassXC" }
+
+[[app]]
+id = "bitwarden"
+name = "Bitwarden"
+category = "Productivity"
+description = "Cloud-synced password manager."
+packages = { arch = "bitwarden", flatpak = "com.bitwarden.desktop" }
+
+# ── Utilities ───────────────────────────────────────────────────────────────
+[[app]]
+id = "btop"
+name = "btop"
+category = "Utilities"
+description = "Resource monitor."
+packages = { fedora = "btop", debian = "btop", arch = "btop" }
+
+[[app]]
+id = "htop"
+name = "htop"
+category = "Utilities"
+description = "Interactive process viewer."
+packages = { fedora = "htop", debian = "htop", arch = "htop" }
+
+[[app]]
+id = "fastfetch"
+name = "fastfetch"
+category = "Utilities"
+description = "System information tool (neofetch successor)."
+packages = { fedora = "fastfetch", debian = "fastfetch", arch = "fastfetch" }
+
+[[app]]
+id = "flameshot"
+name = "Flameshot"
+category = "Utilities"
+description = "Screenshot tool with annotation."
+packages = { fedora = "flameshot", debian = "flameshot", arch = "flameshot", flatpak = "org.flameshot.Flameshot" }
+
+[[app]]
+id = "timeshift"
+name = "Timeshift"
+category = "Utilities"
+description = "System snapshots (rsync or btrfs)."
+packages = { fedora = "timeshift", debian = "timeshift", arch = "timeshift" }
+
+[[app]]
+id = "qbittorrent"
+name = "qBittorrent"
+category = "Utilities"
+description = "BitTorrent client."
+packages = { fedora = "qbittorrent", debian = "qbittorrent", arch = "qbittorrent", flatpak = "org.qbittorrent.qBittorrent" }
+
+[[app]]
+id = "flatseal"
+name = "Flatseal"
+category = "Utilities"
+description = "Manage Flatpak permissions."
+packages = { flatpak = "com.github.tchx84.Flatseal" }

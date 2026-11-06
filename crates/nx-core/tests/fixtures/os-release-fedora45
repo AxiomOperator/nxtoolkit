@@ -1,0 +1,6 @@
+NAME="Fedora Linux"
+VERSION="45 (KDE Plasma Desktop Edition)"
+RELEASE_TYPE=stable
+ID=fedora
+VERSION_ID=45
+PRETTY_NAME="Fedora Linux 45 (KDE Plasma Desktop Edition)"

@@ -1,0 +1,118 @@
+# Tweaks: reversible system changes.
+# run/revert/check are `script.sh [args]` relative to scripts/.
+# check runs unprivileged; exit 0 means "already applied".
+
+[[action]]
+id = "flathub"
+name = "Enable Flathub"
+category = "Repositories"
+description = "Install Flatpak and add the Flathub remote system-wide."
+root = true
+run = "tweaks/flathub.sh apply"
+revert = "tweaks/flathub.sh revert"
+check = "tweaks/flathub.sh status"
+
+[[action]]
+id = "rpmfusion"
+name = "Enable RPM Fusion"
+category = "Repositories"
+description = "Add the RPM Fusion free and nonfree repositories (codecs, Steam, NVIDIA drivers)."
+distros = ["fedora"]
+root = true
+run = "tweaks/rpmfusion.sh apply"
+revert = "tweaks/rpmfusion.sh revert"
+check = "tweaks/rpmfusion.sh status"
+confirm = "Adds third-party repositories, including proprietary software."
+
+[[action]]
+id = "debian-nonfree"
+name = "Enable contrib / non-free (multiverse)"
+category = "Repositories"
+description = "Debian: add contrib, non-free and non-free-firmware components. Ubuntu: enable universe and multiverse."
+distros = ["debian"]
+root = true
+run = "tweaks/debian-nonfree.sh apply"
+check = "tweaks/debian-nonfree.sh status"
+
+[[action]]
+id = "arch-multilib"
+name = "Enable multilib"
+category = "Repositories"
+description = "Enable the 32-bit [multilib] repository in pacman.conf (needed for Steam and Wine)."
+distros = ["arch"]
+root = true
+run = "tweaks/arch-multilib.sh apply"
+revert = "tweaks/arch-multilib.sh revert"
+check = "tweaks/arch-multilib.sh status"
+
+[[action]]
+id = "dnf-parallel"
+name = "Faster dnf downloads"
+category = "Package manager"
+description = "Set max_parallel_downloads=10 in /etc/dnf/dnf.conf."
+distros = ["fedora"]
+root = true
+run = "tweaks/pm-parallel.sh apply"
+revert = "tweaks/pm-parallel.sh revert"
+check = "tweaks/pm-parallel.sh status"
+
+[[action]]
+id = "pacman-parallel"
+name = "Faster pacman downloads"
+category = "Package manager"
+description = "Set ParallelDownloads = 10 and enable Color in /etc/pacman.conf."
+distros = ["arch"]
+root = true
+run = "tweaks/pm-parallel.sh apply"
+revert = "tweaks/pm-parallel.sh revert"
+check = "tweaks/pm-parallel.sh status"
+
+[[action]]
+id = "arch-reflector"
+name = "Rank fastest mirrors"
+category = "Package manager"
+description = "Install reflector and rewrite the mirrorlist with the 20 fastest recently-synced HTTPS mirrors. The old list is backed up."
+distros = ["arch"]
+root = true
+run = "tweaks/arch-reflector.sh apply"
+revert = "tweaks/arch-reflector.sh revert"
+
+[[action]]
+id = "zram"
+name = "Enable zram swap"
+category = "Performance"
+description = "Compressed swap in RAM via zram-generator (half of RAM, max 8 GiB, zstd). Fedora has this by default."
+root = true
+run = "tweaks/zram.sh apply"
+revert = "tweaks/zram.sh revert"
+check = "tweaks/zram.sh status"
+
+[[action]]
+id = "swappiness"
+name = "Lower swappiness (disk swap)"
+category = "Performance"
+description = "Set vm.swappiness=10 so the kernel prefers RAM over a disk swap partition. Not recommended together with zram."
+root = true
+run = "tweaks/swappiness.sh apply"
+revert = "tweaks/swappiness.sh revert"
+check = "tweaks/swappiness.sh status"
+
+[[action]]
+id = "fstrim"
+name = "Weekly SSD TRIM"
+category = "Performance"
+description = "Enable the systemd fstrim.timer."
+root = true
+run = "tweaks/fstrim.sh apply"
+revert = "tweaks/fstrim.sh revert"
+check = "tweaks/fstrim.sh status"
+
+[[action]]
+id = "firewall"
+name = "Enable firewall"
+category = "Security"
+description = "firewalld on Fedora; ufw (deny incoming, allow outgoing) on Debian/Ubuntu/Arch."
+root = true
+run = "tweaks/firewall.sh apply"
+revert = "tweaks/firewall.sh revert"
+check = "tweaks/firewall.sh status"
