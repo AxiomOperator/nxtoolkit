@@ -35,15 +35,16 @@ jobs:
         image: ["fedora:latest", "ubuntu:24.04", "debian:13", "archlinux:latest"]
     container: ${{ matrix.image }}
     steps:
+      # Base images are minimal: install curl (for rustup) and a C toolchain first.
+      - name: Install build deps
+        run: |
+          if command -v dnf; then dnf install -y curl gcc musl-gcc || dnf install -y curl gcc
+          elif command -v apt-get; then apt-get update && apt-get install -y curl ca-certificates gcc musl-tools
+          else pacman -Syu --noconfirm curl gcc musl; fi
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: x86_64-unknown-linux-musl
-      - name: Install build deps
-        run: |
-          if command -v dnf; then dnf install -y gcc musl-gcc || dnf install -y gcc
-          elif command -v apt-get; then apt-get update && apt-get install -y gcc musl-tools
-          else pacman -Syu --noconfirm gcc musl; fi
       - run: cargo build -p nx-tui --target x86_64-unknown-linux-musl
       - name: Smoke test
         run: |
